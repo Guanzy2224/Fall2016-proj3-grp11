@@ -38,7 +38,65 @@ Feature Selection: Find the most useful words in distinguishing chicken and dog 
 
 Train Model: Still use GBM
 
+## Key Parameters
+
+In this algorithm, some key parameters in feature extraction should be corrected setted, otherwise the accuracy will drop down.
+
+0.03: This number in Ind=(rf$importance[,4]>0.03) is an essential threshold for choosing useful words. 0.03 is usually the turning point of importance plot, but it could be larger when the test sample size smaller.
+
+n_dog_learn=min(max(round(n_dog_train*0.5),50),400)
+n_chick_learn=min(max(round(n_chick_train*0.5),50),400): This two lines define the ratio of the size of pooling part and learning part. Closer to 0.5 means a better result but a slower feature extraction for training data.
+
+WINDOW: window size. The window size for calculating GLCM statistics and color statistics. Good choice should be between c(15,15) and c(31,31)
+
+RESIZE: If the image size is larger than RESIZE, then scale them to the size of RESIZE.
+
+distance.as.near: This variable measures how closed are two "words" considered the same. Approximately chi-square distribution with df equal to the number of statistics (because each stat is appx (iid) normal, distance sums their squared difference up)
+
+TrainRoot: The address to folder containing pictures of training set
+
+TestRoot: The address to folder containing pictures of training set
+
+train_labels: The label of training data, please specify it before extracting training features. This is VERY important!
+
+save_Rdata_Name: By default "feature_evual.Rdata", the output filename of .Rdata file for train.R and test.R. This file contains 6 key elements: 3 for our model, 3 for baseline model
+
+no.cores: number of cores used in parallel computation
+
+allFeature: The 14 statistics for each word for all words extracted from all pool_images
+
+SomeFeature: The 14 statistics for each word for ONLY selected (by RandomForest GiniDecreasing) words
+
+scaleSD: A vector of length 14. The scaling parameter for pool_images features(14 columns) and testing features(14 columns).
+
+predictorX: Word frequency (like document to term matrix, dtm) in each learn_images for ALL words extracted from pool_images.
+
+SomepredictorX: Word frequcney in each learn_images for ONLY selected (by RandomForest GiniDecreasing) words
+
+responseY: The label for each line in the "dtm" mentioned above
+
+testX: Word frequcney in each test_images for selected words
 	
+## Packages
+This algorithm uses packages:
+library(EBImage)
+library(glcm)
+library(raster)
+library(jpeg)
+library(class)
+library(randomForest)
+library(dplyr)
+library(caret)
+library(abind)
+library(foreach)
+library(doParallel)
+
+The installation instruction for EBImage:	
+https://bioconductor.org/packages/release/bioc/html/EBImage.html
+	
+## R Version
+Not very version sensitive, just use some new version.
+
 + Contribution statement : 
   
   All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
