@@ -1,8 +1,8 @@
 library(gbm)
 
 #Read in the SIFT
-setwd("/Users/yifeihu/Documents/semester_3/applied_data_science/project_3/Project3_poodleKFC_train")
-data<-read.csv("sift_features.csv")
+setwd("D:/Yinxiang Gao/2015 M.A.STAT Courses/STATGR5243_Applied Data Science/Fall2016-proj3-grp11") # project root folder
+data<-read.csv("./data/sift_features.csv")
 #label the data, chicken is 1 and dog is 0
 data1<-t(data)
 y<-c(rep(0,2000))
