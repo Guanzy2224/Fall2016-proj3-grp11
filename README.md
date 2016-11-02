@@ -42,7 +42,8 @@ Feature Selection: Find the most useful words in distinguishing chicken and dog 
 Train Model: Still use GBM
 
 	
-**Contribution statement**: All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
++ Contribution statement
+All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
 
 
