@@ -17,7 +17,7 @@ library(foreach)
 library(doParallel)
 
 # Set project working directory here, SPECIFY THIS DIRECTORY WHENEVER YOU MAKE A COPY OF THIS PROJECT
-Root <- "D:/Yinxiang Gao/2015 M.A.STAT Courses/STATGR5243_Applied Data Science/Fall2016-proj3-grp11"
+Root <- "C:/Users/Administrator/Desktop/proj 3/Fall2016-proj3-grp11"
 setwd(Root)
 
 # Please specify the directory of training image folder and testing image folder respectively
@@ -68,6 +68,8 @@ clusterN <- 100 # number of clusters to extract for each image
 distance.as.near <- 1 # threshold for deciding if two features are near to each other
 
 
+#---------------please specify above information before running anything below-------------------#
+
 # get img features
 getFeature <- function(imgName = "name of feature image",window=WINDOW,shift=SHIFT){
   img0 <-  readImage(imgName)
@@ -114,9 +116,6 @@ makeFeatureCluster=function(features,clusterNum){
   featuresClsuters=t( (t(featuresClsuters) -  featuresMEAN) * featuresSD + featuresMEAN)
   return(featuresClsuters)
 }
-
-
-#---------------please specify above information before running anything below-------------------#
 
 
 ### construct feature pool
@@ -222,7 +221,7 @@ save.image(file="./output/feature_training.RData")
 #Now use the just-made dictionary to construct a word frequency predictor for each image.
 setwd(Root)
 load("./output/feature_training.RData") # load saved training features
-test_files = list.files(TestRoot)[1:10]
+test_files = list.files(TestRoot)
 n_test=length(test_files)
 setwd(TestRoot)
 
@@ -270,8 +269,8 @@ sift_label <- as.factor(c(rep(0,1000), rep(1,1000)))
 # plot(rfImpt_sift$MeanDecreaseGini)
 
 #Now read in the SIFT features of test data
-# sift_test <- read.csv("")
-
-save(SomepredictorX, responseY, testX, sift_train, sift_label, file=save_Rdata_Name) # we don't have SIFT features for test data right now
-# save(SomepredictorX, responseY, testX, sift_train, sift_label, sift_test, file=save_Rdata_Name) # this would be the final .RData output
+ sift_test <- read.csv("./data/sift features_test.csv")
+ sift_test=t(sift_test)
+# save(SomepredictorX, responseY, testX, sift_train, sift_label, file=save_Rdata_Name) # we don't have SIFT features for test data right now
+ save(SomepredictorX, responseY, testX, sift_train, sift_label, sift_test, file=save_Rdata_Name) # this would be the final .RData output
 
