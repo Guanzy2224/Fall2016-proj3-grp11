@@ -40,6 +40,7 @@ Train Model: Still use GBM
 
 	
 + Contribution statement : 
+  
   All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
 
