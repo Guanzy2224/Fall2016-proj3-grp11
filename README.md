@@ -11,19 +11,38 @@ Term: Fall 2016
      + You, Guanzhong 
      + Zeng, Cen 
      + Gao, Yinxiang
-+ Project summary: In this project, we created a classification engine for images of poodles versus images of fried chickens. 
+
+## Project Summary
+
+In this project, we carried out model evaluation and selection for predictive analytics on image data. We received a set of 2000 images of poodle dogs and fried chickens and worked on how to distinguish them accurately and effectively.
+
+The baseline model uses boosted decision stumps on SIFT features with an accuracy of 67%.
+
+The advanced model we created uses GLCM+COLOR as our new feature resulting in shorter time of extracting features.
+In addition, the advanced model changes key point selection in SIFT to clustering and adds random forest for feature selection. 
+As for the classifier we stick with boosted decision stumps using R packages gbm.
+In all, our new model reaches a much higher accuracy at 80%.
+
+## Process Flow
+
+Divide:	Divide the training image data into two parts: 	One for forming feature pool: pool_image;The other for supervised feature selection: learn_image.
+
+Resize:	Resize all large images to around 30000 pixels
+
+Calculate statistics:	For each p*p window, calculate its statistics (glcm and color)
+
+Cluster: Cluster the windows by their statistics, keep 100 cluster means for each image
+
+Generate words:	Pool cluster means from all  pool_image together and form a dictionary; each statistics (column) is scaled
+
+Word Frequency:	For each learn_image, calculate word frequency
+
+Feature Selection: Find the most useful words in distinguishing chicken and dog (Random Forest)
+
+Train Model: Still use GBM
+
 	
-**Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
+**Contribution statement**: All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
-Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by [RICH FITZJOHN](http://nicercode.github.io/about/#Team) (@richfitz). This folder is orgarnized as follows.
 
-```
-proj/
-├── lib/
-├── data/
-├── doc/
-├── figs/
-└── output/
-```
 
-Please see each subfolder for a README file.
