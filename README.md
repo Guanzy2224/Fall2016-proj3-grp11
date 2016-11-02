@@ -79,17 +79,17 @@ n_chick_learn=min(max(round(n_chick_train*0.5),50),400)**: This two lines define
 	
 ## Packages
 This algorithm uses packages:
-library(EBImage)
-library(glcm)
-library(raster)
-library(jpeg)
-library(class)
-library(randomForest)
-library(dplyr)
-library(caret)
-library(abind)
-library(foreach)
-library(doParallel)
+library(EBImage), 
+library(glcm), 
+library(raster), 
+library(jpeg), 
+library(class), 
+library(randomForest), 
+library(dplyr), 
+library(caret), 
+library(abind), 
+library(foreach), 
+library(doParallel), 
 
 The installation instruction for EBImage:	
 https://bioconductor.org/packages/release/bioc/html/EBImage.html
