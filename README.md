@@ -16,7 +16,7 @@ Term: Fall 2016
 
 In this project, we carried out model evaluation and selection for predictive analytics on image data. We received a set of 2000 images of poodle dogs and fried chickens and worked on how to distinguish them accurately and effectively.
 
-The baseline model uses boosted decision stumps on SIFT features with an accuracy of 67%.
+The baseline model uses boosted decision stumps on SIFT features with an accuracy of 72%.
 
 The advanced model we created uses GLCM+COLOR as our new feature resulting in shorter time of extracting features. In addition, the advanced model changes key point selection in SIFT to clustering and adds random forest for feature selection.  As for the classifier we stick with boosted decision stumps using R packages gbm. In all, our new model reaches a much higher accuracy at 80%.
 
