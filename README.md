@@ -18,10 +18,7 @@ In this project, we carried out model evaluation and selection for predictive an
 
 The baseline model uses boosted decision stumps on SIFT features with an accuracy of 67%.
 
-The advanced model we created uses GLCM+COLOR as our new feature resulting in shorter time of extracting features.
-In addition, the advanced model changes key point selection in SIFT to clustering and adds random forest for feature selection. 
-As for the classifier we stick with boosted decision stumps using R packages gbm.
-In all, our new model reaches a much higher accuracy at 80%.
+The advanced model we created uses GLCM+COLOR as our new feature resulting in shorter time of extracting features. In addition, the advanced model changes key point selection in SIFT to clustering and adds random forest for feature selection.  As for the classifier we stick with boosted decision stumps using R packages gbm. In all, our new model reaches a much higher accuracy at 80%.
 
 ## Process Flow
 
@@ -42,8 +39,8 @@ Feature Selection: Find the most useful words in distinguishing chicken and dog 
 Train Model: Still use GBM
 
 	
-+ Contribution statement
-All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
++ Contribution statement : 
+  All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
 
 
